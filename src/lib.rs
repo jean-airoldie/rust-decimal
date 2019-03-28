@@ -45,3 +45,7 @@ mod serde_types;
 
 pub use decimal::{Decimal, RoundingStrategy};
 pub use error::Error;
+
+pub mod prelude {
+    pub use num::{FromPrimitive, One, ToPrimitive, Zero};
+}
