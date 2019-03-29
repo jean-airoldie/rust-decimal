@@ -2181,11 +2181,19 @@ impl AddAssign for Decimal {
 
 impl<'a> AddAssign<&'a Decimal> for Decimal {
     fn add_assign(&mut self, other: &'a Decimal) {
-        let result = self.add(other);
-        self.lo = result.lo;
-        self.mid = result.mid;
-        self.hi = result.hi;
-        self.flags = result.flags;
+        Decimal::add_assign(self, *other)
+    }
+}
+
+impl<'a> AddAssign<Decimal> for &'a mut Decimal {
+    fn add_assign(&mut self, other: Decimal) {
+        Decimal::add_assign(*self, other)
+    }
+}
+
+impl<'a> AddAssign<&'a Decimal> for &'a mut Decimal {
+    fn add_assign(&mut self, other: &'a Decimal) {
+        Decimal::add_assign(*self, *other)
     }
 }
 
@@ -2218,11 +2226,19 @@ impl SubAssign for Decimal {
 
 impl<'a> SubAssign<&'a Decimal> for Decimal {
     fn sub_assign(&mut self, other: &'a Decimal) {
-        let result = self.sub(other);
-        self.lo = result.lo;
-        self.mid = result.mid;
-        self.hi = result.hi;
-        self.flags = result.flags;
+        Decimal::sub_assign(self, *other)
+    }
+}
+
+impl<'a> SubAssign<Decimal> for &'a mut Decimal {
+    fn sub_assign(&mut self, other: Decimal) {
+        Decimal::sub_assign(*self, other)
+    }
+}
+
+impl<'a> SubAssign<&'a Decimal> for &'a mut Decimal {
+    fn sub_assign(&mut self, other: &'a Decimal) {
+        Decimal::sub_assign(*self, *other)
     }
 }
 
@@ -2416,11 +2432,19 @@ impl MulAssign for Decimal {
 
 impl<'a> MulAssign<&'a Decimal> for Decimal {
     fn mul_assign(&mut self, other: &'a Decimal) {
-        let result = self.mul(other);
-        self.lo = result.lo;
-        self.mid = result.mid;
-        self.hi = result.hi;
-        self.flags = result.flags;
+        Decimal::mul_assign(self, *other)
+    }
+}
+
+impl<'a> MulAssign<Decimal> for &'a mut Decimal {
+    fn mul_assign(&mut self, other: Decimal) {
+        Decimal::mul_assign(*self, other)
+    }
+}
+
+impl<'a> MulAssign<&'a Decimal> for &'a mut Decimal {
+    fn mul_assign(&mut self, other: &'a Decimal) {
+        Decimal::mul_assign(*self, *other)
     }
 }
 
@@ -2562,11 +2586,19 @@ impl DivAssign for Decimal {
 
 impl<'a> DivAssign<&'a Decimal> for Decimal {
     fn div_assign(&mut self, other: &'a Decimal) {
-        let result = self.div(other);
-        self.lo = result.lo;
-        self.mid = result.mid;
-        self.hi = result.hi;
-        self.flags = result.flags;
+        Decimal::div_assign(self, *other)
+    }
+}
+
+impl<'a> DivAssign<Decimal> for &'a mut Decimal {
+    fn div_assign(&mut self, other: Decimal) {
+        Decimal::div_assign(*self, other)
+    }
+}
+
+impl<'a> DivAssign<&'a Decimal> for &'a mut Decimal {
+    fn div_assign(&mut self, other: &'a Decimal) {
+        Decimal::div_assign(*self, *other)
     }
 }
 
@@ -2613,11 +2645,19 @@ impl RemAssign for Decimal {
 
 impl<'a> RemAssign<&'a Decimal> for Decimal {
     fn rem_assign(&mut self, other: &'a Decimal) {
-        let result = self.rem(other);
-        self.lo = result.lo;
-        self.mid = result.mid;
-        self.hi = result.hi;
-        self.flags = result.flags;
+        Decimal::rem_assign(self, *other)
+    }
+}
+
+impl<'a> RemAssign<Decimal> for &'a mut Decimal {
+    fn rem_assign(&mut self, other: Decimal) {
+        Decimal::rem_assign(*self, other)
+    }
+}
+
+impl<'a> RemAssign<&'a Decimal> for &'a mut Decimal {
+    fn rem_assign(&mut self, other: &'a Decimal) {
+        Decimal::rem_assign(*self, *other)
     }
 }
 
