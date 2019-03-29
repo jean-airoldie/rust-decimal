@@ -2602,6 +2602,7 @@ impl<'a> DivAssign<&'a Decimal> for &'a mut Decimal {
     }
 }
 
+
 forward_all_binop!(impl Rem for Decimal, rem);
 
 impl<'a, 'b> Rem<&'b Decimal> for &'a Decimal {
