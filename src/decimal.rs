@@ -1,3 +1,4 @@
+
 use crate::Error;
 
 use num::{FromPrimitive, One, ToPrimitive, Zero};
@@ -2447,7 +2448,6 @@ impl<'a> MulAssign<&'a Decimal> for &'a mut Decimal {
     }
 }
 
-
 forward_all_binop!(impl Div for Decimal, div);
 
 impl<'a, 'b> Div<&'b Decimal> for &'a Decimal {
@@ -2601,7 +2601,6 @@ impl<'a> DivAssign<&'a Decimal> for &'a mut Decimal {
         Decimal::div_assign(*self, *other)
     }
 }
-
 
 forward_all_binop!(impl Rem for Decimal, rem);
 
