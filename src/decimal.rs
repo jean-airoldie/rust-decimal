@@ -1,3 +1,4 @@
+
 use crate::Error;
 
 use num::{FromPrimitive, One, ToPrimitive, Zero};
@@ -2178,6 +2179,16 @@ impl AddAssign for Decimal {
     }
 }
 
+impl<'a> AddAssign<&'a Decimal> for Decimal {
+    fn add_assign(&mut self, other: &'a Decimal) {
+        let result = self.add(other);
+        self.lo = result.lo;
+        self.mid = result.mid;
+        self.hi = result.hi;
+        self.flags = result.flags;
+    }
+}
+
 forward_all_binop!(impl Sub for Decimal, sub);
 
 impl<'a, 'b> Sub<&'b Decimal> for &'a Decimal {
@@ -2197,6 +2208,16 @@ impl<'a, 'b> Sub<&'b Decimal> for &'a Decimal {
 
 impl SubAssign for Decimal {
     fn sub_assign(&mut self, other: Decimal) {
+        let result = self.sub(other);
+        self.lo = result.lo;
+        self.mid = result.mid;
+        self.hi = result.hi;
+        self.flags = result.flags;
+    }
+}
+
+impl<'a> SubAssign<&'a Decimal> for Decimal {
+    fn sub_assign(&mut self, other: &'a Decimal) {
         let result = self.sub(other);
         self.lo = result.lo;
         self.mid = result.mid;
@@ -2393,6 +2414,16 @@ impl MulAssign for Decimal {
     }
 }
 
+impl<'a> MulAssign<&'a Decimal> for Decimal {
+    fn mul_assign(&mut self, other: &'a Decimal) {
+        let result = self.mul(other);
+        self.lo = result.lo;
+        self.mid = result.mid;
+        self.hi = result.hi;
+        self.flags = result.flags;
+    }
+}
+
 forward_all_binop!(impl Div for Decimal, div);
 
 impl<'a, 'b> Div<&'b Decimal> for &'a Decimal {
@@ -2529,6 +2560,16 @@ impl DivAssign for Decimal {
     }
 }
 
+impl<'a> DivAssign<&'a Decimal> for Decimal {
+    fn div_assign(&mut self, other: &'a Decimal) {
+        let result = self.div(other);
+        self.lo = result.lo;
+        self.mid = result.mid;
+        self.hi = result.hi;
+        self.flags = result.flags;
+    }
+}
+
 forward_all_binop!(impl Rem for Decimal, rem);
 
 impl<'a, 'b> Rem<&'b Decimal> for &'a Decimal {
@@ -2562,6 +2603,16 @@ impl<'a, 'b> Rem<&'b Decimal> for &'a Decimal {
 
 impl RemAssign for Decimal {
     fn rem_assign(&mut self, other: Decimal) {
+        let result = self.rem(other);
+        self.lo = result.lo;
+        self.mid = result.mid;
+        self.hi = result.hi;
+        self.flags = result.flags;
+    }
+}
+
+impl<'a> RemAssign<&'a Decimal> for Decimal {
+    fn rem_assign(&mut self, other: &'a Decimal) {
         let result = self.rem(other);
         self.lo = result.lo;
         self.mid = result.mid;
